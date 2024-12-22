@@ -23,8 +23,20 @@ class DashboardLoginController extends Controller
         return view('Dashboard');
     }
 
+
     public function Services()
     {
         return view('Services');
+    }
+
+
+    public function Maps()
+    {
+        return view('Maps');
+    }
+
+    public function transaksis()
+    {
+        return view('transaksis');
     }
 }

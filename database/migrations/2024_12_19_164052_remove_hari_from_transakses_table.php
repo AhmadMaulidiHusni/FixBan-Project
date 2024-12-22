@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pengaduan', function (Blueprint $table) {
-            $table->id();
-            $table->string('isi_aduan');
-            $table->timestamps();
+        Schema::table('transakses', function (Blueprint $table) {
+            //
         });
     }
 
@@ -23,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pengaduan');
+        Schema::table('transakses', function (Blueprint $table) {
+            //
+        });
     }
 };

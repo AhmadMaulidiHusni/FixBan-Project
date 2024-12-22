@@ -8,7 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
 </head>
 <body class="bg-white flex flex-col min-h-screen">
-    @include('header')
+    @include('User.headeruser')
 
     <!-- Main Section -->
     <main class="container mx-auto flex flex-col md:flex-row items-center py-12 px-6 flex-grow">
@@ -38,5 +38,6 @@
         </div>
     </main>
 
+    
 </body>
 </html>

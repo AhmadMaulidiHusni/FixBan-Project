@@ -15,6 +15,10 @@ class AkunController extends Controller
         if (Auth::guard('admin')->attempt(['email'=>$request->email, 'password'=>$request->password])) {
             return redirect('/Dashboard');
         }
+        if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password])) {
+            return redirect()->route('DashboardUser'); 
+         
+        }
         return redirect()->back();
     }
 
@@ -22,7 +26,10 @@ class AkunController extends Controller
     {
         if (Auth::guard('admin')->check()) {
             Auth::guard('admin')->logout();
+        } elseif (Auth::guard('web')->check()) {
+            Auth::guard('web')->logout();
         }
+        
         return redirect('/login');
     }
 
@@ -46,6 +53,6 @@ class AkunController extends Controller
         Auth::login($user);
 
         // Redirect ke dashboard
-        return redirect()->route('Dashboard');
+        return redirect()->route('DashboardUser');
     }
 }
