@@ -29,18 +29,8 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="password">PASSWORD</label>
                 <div class="relative">
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" name="password" placeholder="**********" type="password" required />
-                    <i class="fas fa-eye absolute right-3 top-3 text-gray-500"></i>
+                    <i class="fas fa-eye absolute right-3 top-3 text-gray-500 cursor-pointer" id="togglePassword"></i>
                 </div>
-            </div>
-            <!-- Dropdown Pilihan User atau Admin -->
-            <div class="flex items-center justify-between mb-6">
-                <label class="flex items-center">
-                    <input class="mr-2 leading-tight" type="checkbox" />
-                    <span class="text-sm">Remember Me</span>
-                </label>
-                <a class="inline-block align-baseline font-bold text-sm text-gray-500 hover:text-gray-800" href="#">
-                    Forgot Password?
-                </a>
             </div>
             <form action="{{ route('DashboardUser') }}">
                 <div class="mb-6">
@@ -54,6 +44,22 @@
             </a>
         </form>
     </div>
+
+    <script>
+        // Show/Hide Password Functionality
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+
+        togglePassword.addEventListener('click', function() {
+            // Toggle the password input type
+            const type = passwordInput.type === 'password' ? 'text' : 'password';
+            passwordInput.type = type;
+
+            // Toggle the eye icon
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+    </script>
 </body>
 
 </html>
